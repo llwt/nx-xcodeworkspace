@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		B05D49AD2CDA90FB000BA0F2 /* LibOne.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05D49AC2CDA90FB000BA0F2 /* LibOne.framework */; };
+		B05D49AE2CDA90FB000BA0F2 /* LibOne.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B05D49AC2CDA90FB000BA0F2 /* LibOne.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		B05D49682CDA8FCE000BA0F2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -23,10 +28,25 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		B05D49AF2CDA90FB000BA0F2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B05D49AE2CDA90FB000BA0F2 /* LibOne.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		B05D49572CDA8FCD000BA0F2 /* AppOne.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppOne.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B05D49672CDA8FCE000BA0F2 /* AppOneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppOneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B05D49712CDA8FCE000BA0F2 /* AppOneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppOneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B05D49AC2CDA90FB000BA0F2 /* LibOne.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LibOne.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -52,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B05D49AD2CDA90FB000BA0F2 /* LibOne.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +99,7 @@
 				B05D49592CDA8FCD000BA0F2 /* AppOne */,
 				B05D496A2CDA8FCE000BA0F2 /* AppOneTests */,
 				B05D49742CDA8FCE000BA0F2 /* AppOneUITests */,
+				B05D49AB2CDA90FB000BA0F2 /* Frameworks */,
 				B05D49582CDA8FCD000BA0F2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -92,6 +114,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		B05D49AB2CDA90FB000BA0F2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B05D49AC2CDA90FB000BA0F2 /* LibOne.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -102,6 +132,7 @@
 				B05D49532CDA8FCD000BA0F2 /* Sources */,
 				B05D49542CDA8FCD000BA0F2 /* Frameworks */,
 				B05D49552CDA8FCD000BA0F2 /* Resources */,
+				B05D49AF2CDA90FB000BA0F2 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

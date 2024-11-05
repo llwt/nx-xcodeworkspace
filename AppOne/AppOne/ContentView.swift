@@ -6,14 +6,22 @@
 //
 
 import SwiftUI
+import LibOne
 
 struct ContentView: View {
+    @State private var person = LibOnePerson(name: "Foo", age: 31)
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, App One!")
+            HStack {
+                Image(systemName: "globe")
+                    .imageScale(.large)
+                    .foregroundStyle(.tint)
+                Text("App One")
+            }
+            .padding()
+            
+            Text("Hello, " + person.fullName + "!")
         }
         .padding()
     }
