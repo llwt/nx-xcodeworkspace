@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B05D49992CDA9003000BA0F2 /* LibOne.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B05D498E2CDA9003000BA0F2 /* LibOne.framework */; };
+		B05D49B32CDA9286000BA0F2 /* project.json in Resources */ = {isa = PBXBuildFile; fileRef = B05D49B22CDA9281000BA0F2 /* project.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,6 +24,7 @@
 /* Begin PBXFileReference section */
 		B05D498E2CDA9003000BA0F2 /* LibOne.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LibOne.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B05D49982CDA9003000BA0F2 /* LibOneTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LibOneTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B05D49B22CDA9281000BA0F2 /* project.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = project.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -73,6 +75,7 @@
 		B05D49842CDA9003000BA0F2 = {
 			isa = PBXGroup;
 			children = (
+				B05D49B22CDA9281000BA0F2 /* project.json */,
 				B05D49902CDA9003000BA0F2 /* LibOne */,
 				B05D499C2CDA9003000BA0F2 /* LibOneTests */,
 				B05D498F2CDA9003000BA0F2 /* Products */,
@@ -190,6 +193,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B05D49B32CDA9286000BA0F2 /* project.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

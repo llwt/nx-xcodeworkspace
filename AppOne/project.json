@@ -1,0 +1,15 @@
+{
+  "name": "AppOne",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "AppOne",
+  "projectType": "application",
+  "implicitDependencies": ["LibOne"],
+  "targets": {
+    "build": {
+      "command": "xcodebuild -workspace ./Nx.xcworkspace -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 16' -scheme 'AppOne' build",
+      "outputs": ["{workspaceRoot}/DerivedData/**/AppOne.*/**/*"],
+      "dependsOn": ["^build"],
+      "cache": true
+    }
+  }
+}

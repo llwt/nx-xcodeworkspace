@@ -1,0 +1,13 @@
+{
+  "name": "LibOne",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "LibOne",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "command": "xcodebuild -workspace ./Nx.xcworkspace -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 16' -scheme 'LibOne' build",
+      "outputs": ["{workspaceRoot}/DerivedData/**/LibOne.*/**/*"],
+      "cache": true
+    }
+  }
+}
