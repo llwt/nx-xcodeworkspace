@@ -4,4 +4,7 @@
    <FileRef
       location = "group:AppOne/AppOne.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:LibOne/LibOne.xcodeproj">
+   </FileRef>
 </Workspace>
