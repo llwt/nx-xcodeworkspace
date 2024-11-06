@@ -23,6 +23,7 @@
 - LibTwo Project.json -> `implicitDependencies` to `["LibOne"]`
 - AppTwo Project.json -> `implicitDependencies` to `["LibTwo"]`
 
+---
 
 - Nx.json -> `targetDefaults.build.dependsOn` to `["^build"]`
 - Nx.json -> `targetDefaults.build.cache` to `true`

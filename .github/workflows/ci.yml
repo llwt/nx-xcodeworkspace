@@ -37,6 +37,10 @@ jobs:
         with:
           version: latest
 
+      - uses: nrwl/nx-set-shas@v4
+        with:
+          main-branch-name: "main"
+
       - name: "Start CI Run"
         run: >
           pnpm dlx nx-cloud start-ci-run
