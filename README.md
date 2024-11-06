@@ -10,13 +10,23 @@
 - Project Schemes -> Build -> Build Options -> Find Implicit Dependencies -> `Yes` to `No`
   - This prevents `xcodebuild` from trying to re-build the already built dependencies
   - For development, a new scheme can be created that re-enables this if you want auto-updates for dependencies
+
+## XCode Target Config -- establish dependencies
+
 - AppOne Target -> General -> Frameworks, Libraries, and Embedded Content -> Add: `LibOne.framework`
+- LibTwo Target -> General -> Frameworks, Libraries, and Embedded Content -> Add: `LibOne.framework`
+- AppTwo Target -> General -> Frameworks, Libraries, and Embedded Content -> Add: `LibTwo.framework`
 
 ## Nx Config
 
 - AppOne Project.json -> `implicitDependencies` to `["LibOne"]`
-- AppOne Project.json -> `targets.build.dependsOn` to `["^build"]`
-- LibOne Project.json -> `targets.build.cache` to `true`
+- LibTwo Project.json -> `implicitDependencies` to `["LibOne"]`
+- AppTwo Project.json -> `implicitDependencies` to `["LibTwo"]`
+
+
+- Nx.json -> `targetDefaults.build.dependsOn` to `["^build"]`
+- Nx.json -> `targetDefaults.build.cache` to `true`
+- Nx.json -> `targetDefaults.build.outputs` to `"{workspaceRoot}/DerivedData/**/{projectName}.*/**/*"`
 
 ## Optional Changes
 
@@ -35,3 +45,7 @@
 
 - Create nx plugin to read `xcworkspace` and `xcodeproj` files and generate the targets and dependencies automatically
 - Find a way to integrate `nx` into `xcodebuild` or whatever you use for building currently
+- Configure a "development" scheme that re-enables the Find Implicit Dependencies option and uses nx cache when present rather than re-building
+   - I wasn't able to pin down exactly how to prevent xcode from rebuilding
+   - Just caching the intermediates and products did not seem to be enough
+   - The `Legacy` option in `Xcode Settings -> Location -> Derived Data -> Advanced` seemed like it may work, however I ran into issues getting xcode to resolve the compiled products. Configuring the "Framework Search Paths" seems to be the answer, but I wasn't able to get it to work.

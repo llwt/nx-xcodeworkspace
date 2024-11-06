@@ -6,10 +6,7 @@
   "implicitDependencies": ["LibOne"],
   "targets": {
     "build": {
-      "command": "xcodebuild -workspace ./Nx.xcworkspace -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 16' -scheme 'AppOne' build",
-      "outputs": ["{workspaceRoot}/DerivedData/**/AppOne.*/**/*"],
-      "dependsOn": ["^build"],
-      "cache": true
+      "command": "xcodebuild -workspace ./Nx.xcworkspace -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 16' -scheme 'AppOne' build"
     }
   }
 }

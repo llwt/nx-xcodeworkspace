@@ -1,5 +1,12 @@
 {
   "installation": {
     "version": "20.0.8"
+  },
+  "targetDefaults": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["{workspaceRoot}/DerivedData/**/{projectName}.*/**/*"],
+      "cache": true
+    }
   }
 }

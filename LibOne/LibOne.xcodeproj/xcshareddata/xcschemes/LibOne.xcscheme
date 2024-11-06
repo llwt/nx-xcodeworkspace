@@ -15,10 +15,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B00815EC2CDBAAD500332840"
-               BuildableName = "AppTwo.app"
-               BlueprintName = "AppTwo"
-               ReferencedContainer = "container:AppTwo.xcodeproj">
+               BlueprintIdentifier = "B05D498D2CDA9003000BA0F2"
+               BuildableName = "LibOne.framework"
+               BlueprintName = "LibOne"
+               ReferencedContainer = "container:LibOne.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,21 +35,10 @@
             parallelizable = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B00815FC2CDBAAD600332840"
-               BuildableName = "AppTwoTests.xctest"
-               BlueprintName = "AppTwoTests"
-               ReferencedContainer = "container:AppTwo.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO"
-            parallelizable = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B00816062CDBAAD600332840"
-               BuildableName = "AppTwoUITests.xctest"
-               BlueprintName = "AppTwoUITests"
-               ReferencedContainer = "container:AppTwo.xcodeproj">
+               BlueprintIdentifier = "B05D49972CDA9003000BA0F2"
+               BuildableName = "LibOneTests.xctest"
+               BlueprintName = "LibOneTests"
+               ReferencedContainer = "container:LibOne.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -64,16 +53,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B00815EC2CDBAAD500332840"
-            BuildableName = "AppTwo.app"
-            BlueprintName = "AppTwo"
-            ReferencedContainer = "container:AppTwo.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -81,16 +60,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B00815EC2CDBAAD500332840"
-            BuildableName = "AppTwo.app"
-            BlueprintName = "AppTwo"
-            ReferencedContainer = "container:AppTwo.xcodeproj">
+            BlueprintIdentifier = "B05D498D2CDA9003000BA0F2"
+            BuildableName = "LibOne.framework"
+            BlueprintName = "LibOne"
+            ReferencedContainer = "container:LibOne.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		B00815D22CDBA94500332840 /* LibTwo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B00815C72CDBA94500332840 /* LibTwo.framework */; };
+		B04571842CDBB0E20053AA66 /* LibOne.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B04571832CDBB0E20053AA66 /* LibOne.framework */; };
+		B04571852CDBB0E20053AA66 /* LibOne.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B04571832CDBB0E20053AA66 /* LibOne.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -20,9 +22,24 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		B04571862CDBB0E20053AA66 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B04571852CDBB0E20053AA66 /* LibOne.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		B00815C72CDBA94500332840 /* LibTwo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = LibTwo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B00815D12CDBA94500332840 /* LibTwoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LibTwoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B04571832CDBB0E20053AA66 /* LibOne.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = LibOne.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -56,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B04571842CDBB0E20053AA66 /* LibOne.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,6 +93,7 @@
 			children = (
 				B00815C92CDBA94500332840 /* LibTwo */,
 				B00815D52CDBA94500332840 /* LibTwoTests */,
+				B04571822CDBB0E20053AA66 /* Frameworks */,
 				B00815C82CDBA94500332840 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -86,6 +105,14 @@
 				B00815D12CDBA94500332840 /* LibTwoTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		B04571822CDBB0E20053AA66 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B04571832CDBB0E20053AA66 /* LibOne.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -109,6 +136,7 @@
 				B00815C32CDBA94500332840 /* Sources */,
 				B00815C42CDBA94500332840 /* Frameworks */,
 				B00815C52CDBA94500332840 /* Resources */,
+				B04571862CDBB0E20053AA66 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

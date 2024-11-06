@@ -1,0 +1,12 @@
+{
+  "name": "AppTwo",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "AppTwo",
+  "projectType": "application",
+  "implicitDependencies": ["LibTwo"],
+  "targets": {
+    "build": {
+      "command": "xcodebuild -workspace ./Nx.xcworkspace -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 16' -scheme 'AppTwo' build"
+    }
+  }
+}
