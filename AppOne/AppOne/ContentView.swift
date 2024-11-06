@@ -21,7 +21,7 @@ struct ContentView: View {
             }
             .padding()
             
-            Text("Hello, " + person.fullName + "!")
+            Text(person.fullName)
         }
         .padding()
     }

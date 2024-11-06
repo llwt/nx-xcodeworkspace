@@ -12,7 +12,7 @@ public struct LibOnePerson {
     public private(set) var dateCreated: Date
     
     public var fullName: String {
-        lastName.isEmpty ? name : name + " " + lastName
+        "Lib One: " + (lastName.isEmpty ? name : name + " " + lastName)
     }
     
     public init(name: String, lastName: String = "", age: Int) {

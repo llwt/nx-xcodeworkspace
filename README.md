@@ -30,3 +30,8 @@
 - Having a Derived Data folder per project and/or changing build locations to be relative to the project
   - I could not get XCode to find the modules in a different Derived Data folder.
     _Someone more familiar with XCode might be able to figure this out._
+
+## Improvements that can be made
+
+- Create nx plugin to read `xcworkspace` and `xcodeproj` files and generate the targets and dependencies automatically
+- Find a way to integrate `nx` into `xcodebuild` or whatever you use for building currently
