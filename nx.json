@@ -4,14 +4,11 @@
   },
   "targetDefaults": {
     "build": {
-      "dependsOn": [
-        "^build"
-      ],
-      "outputs": [
-        "{workspaceRoot}/DerivedData/**/{projectName}.*/**/*"
-      ],
+      "dependsOn": ["^build"],
+      "outputs": ["{workspaceRoot}/DerivedData/**/{projectName}.*/**/*"],
       "cache": true
     }
   },
+  "bust": 1,
   "nxCloudId": "672b7caf1d009dbc0d79b3ff"
 }
