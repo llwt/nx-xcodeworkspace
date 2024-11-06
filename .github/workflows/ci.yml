@@ -1,0 +1,65 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+env:
+  NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
+  NX_BRANCH: ${{ github.event.number || github.ref_name }}
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  dte-host:
+    name: DTE Host
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [20]
+
+    runs-on: "ubuntu-latest"
+    timeout-minutes: 30
+
+    env:
+      NX_BRANCH: ${{ github.event.pull_request.head.ref || github.ref }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v4
+
+      - name: "Start CI Run"
+        run: >
+          pnpm dlx nx-cloud start-ci-run
+          --distribute-on="manual"
+          --stop-agents-after="build"
+
+      - name: "Run Affected Tasks"
+        run: ./nx affected -t build,test
+
+  dte-agent:
+    name: DTE Agent ${{ matrix.agent_number }}
+    runs-on: macos-14
+
+    strategy:
+      matrix:
+        agent_number: [1, 2, 3]
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v4
+
+      - name: Start Nx Agent ${{ matrix.agent_number }}
+        run: pnpm dlx nx-cloud start-agent
+        env:
+          NX_AGENT_NAME: ${{ matrix.agent_number }}
