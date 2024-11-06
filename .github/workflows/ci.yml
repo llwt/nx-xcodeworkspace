@@ -33,9 +33,9 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: pnpm/action-setup@v4
-        with:
-          version: latest
+      # - uses: pnpm/action-setup@v4
+      #   with:
+      #     version: latest
 
       - uses: nrwl/nx-set-shas@v4
         with:
@@ -43,9 +43,15 @@ jobs:
 
       - name: "Start CI Run"
         run: >
-          pnpm dlx nx-cloud start-ci-run
+          npx nx-cloud start-ci-run
           --distribute-on="manual"
           --stop-agents-after="build"
+
+      # - name: "Start CI Run"
+      #   run: >
+      #     pnpm dlx nx-cloud start-ci-run
+      #     --distribute-on="manual"
+      #     --stop-agents-after="build"
 
       - name: "Run Affected Tasks"
         run: ./nx affected -t build,test
@@ -63,11 +69,11 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: pnpm/action-setup@v4
-        with:
-          version: latest
+      # - uses: pnpm/action-setup@v4
+      #   with:
+      #     version: latest
 
       - name: Start Nx Agent ${{ matrix.agent_number }}
-        run: pnpm dlx nx-cloud start-agent
+        run: npx nx-cloud start-agent
         env:
           NX_AGENT_NAME: ${{ matrix.agent_number }}
