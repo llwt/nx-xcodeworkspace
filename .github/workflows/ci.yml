@@ -17,13 +17,7 @@ permissions:
 jobs:
   dte-host:
     name: DTE Host
-    strategy:
-      fail-fast: false
-      matrix:
-        node-version: [20]
-
     runs-on: "ubuntu-latest"
-    timeout-minutes: 30
 
     env:
       NX_BRANCH: ${{ github.event.pull_request.head.ref || github.ref }}
@@ -57,6 +51,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # NOTE: Everything between this and the "npm ci" step is a workaround 
+      # for a bug with nx-cloud in non-js workspaces. This will not be necessary
+      # in the future.
+
       # Set node/npm/yarn versions using volta
       - uses: volta-cli/action@v4
         with:
@@ -70,6 +68,8 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      # END WORKAROUND
 
       - name: Start Nx Agent ${{ matrix.agent_number }}
         run: npx nx-cloud start-agent
