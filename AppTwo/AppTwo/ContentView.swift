@@ -10,7 +10,7 @@ import LibTwo
 
 struct ContentView: View {
     @State private var people = LibTwoPeople(firstPersonName: "Bar", secondPersonName: "Baz")
-    
+
     var body: some View {
         VStack {
             HStack {
@@ -20,7 +20,7 @@ struct ContentView: View {
                 Text("App Two")
             }
             .padding()
-            
+
             people.NamesView
         }
         .padding()
