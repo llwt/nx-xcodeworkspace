@@ -10,7 +10,7 @@ import LibOne
 
 struct ContentView: View {
     @State private var person = LibOnePerson(name: "Foo", age: 31)
-    
+
     var body: some View {
         VStack {
             HStack {
@@ -20,7 +20,7 @@ struct ContentView: View {
                 Text("App One")
             }
             .padding()
-            
+
             Text(person.fullName)
         }
         .padding()

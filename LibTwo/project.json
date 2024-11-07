@@ -6,7 +6,7 @@
   "implicitDependencies": ["LibOne"],
   "targets": {
     "build": {
-      "command": "xcodebuild -workspace ./Nx.xcworkspace -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 16' -scheme 'LibTwo' build"
+      "command": "xcodebuild -workspace ./Nx.xcworkspace -derivedDataPath ./DerivedData -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 16' -scheme 'LibTwo' build"
     }
   }
 }

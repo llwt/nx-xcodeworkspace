@@ -1,0 +1,77 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+env:
+  NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_PROD_ACCESS_TOKEN }}
+  NX_BRANCH: ${{ github.event.number || github.ref_name }}
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  dte-host:
+    name: DTE Host
+    runs-on: "ubuntu-latest"
+
+    env:
+      NX_BRANCH: ${{ github.event.pull_request.head.ref || github.ref }}
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: nrwl/nx-set-shas@v4
+        with:
+          main-branch-name: "main"
+
+      - name: "Start CI Run"
+        run: >
+          npx nx-cloud start-ci-run
+          --distribute-on="manual"
+          --stop-agents-after="build"
+
+      - name: "Run Affected Tasks"
+        run: ./nx affected -t build,test
+
+  dte-agent:
+    name: DTE Agent ${{ matrix.agent_number }}
+    runs-on: macos-15
+
+    strategy:
+      matrix:
+        agent_number: [1, 2, 3]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # NOTE: Everything between this and the "npm ci" step is a workaround
+      # for a bug with nx-cloud in non-js workspaces. This will not be necessary
+      # in the future.
+
+      # Set node/npm/yarn versions using volta
+      - uses: volta-cli/action@v4
+        with:
+          package-json-path: "${{ github.workspace }}/package.json"
+
+      - name: Use the package manager cache if available
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      # END WORKAROUND
+
+      - name: Start Nx Agent ${{ matrix.agent_number }}
+        run: npx nx-cloud start-agent
+        env:
+          NX_AGENT_NAME: ${{ matrix.agent_number }}

@@ -2,7 +2,7 @@
 //  Person.swift
 //  LibOne
 //
-//  Created by Steven Nance on 05/11/2024.
+//  Created by Steven Nance on 05/11/2024
 //
 
 public struct LibOnePerson {
