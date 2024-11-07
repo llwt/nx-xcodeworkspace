@@ -56,15 +56,22 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
 
-      - uses: pnpm/action-setup@v4
+      # Set node/npm/yarn versions using volta
+      - uses: volta-cli/action@v4
+        with:
+          package-json-path: "${{ github.workspace }}/package.json"
+
+      - name: Use the package manager cache if available
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: "npm"
 
       - name: Install dependencies
-        run: pnpm install
+        run: npm ci
 
-      - name: Start Nx Agent ${{ matrix.agent_number }}
-        run: pnpx nx-cloud start-agent
+      - name: Start Nx Agent ${{ matrix.agent }}
+        run: npx nx-cloud start-agent
         env:
-          NX_AGENT_NAME: ${{ matrix.agent_number }}
+          NX_AGENT_NAME: ${{ matrix.agent }}
