@@ -48,7 +48,7 @@ jobs:
 
   dte-agent:
     name: DTE Agent ${{ matrix.agent_number }}
-    runs-on: macos-14
+    runs-on: macos-15
 
     strategy:
       matrix:
@@ -60,13 +60,13 @@ jobs:
       # Set node/npm/yarn versions using volta
       - uses: volta-cli/action@v4
         with:
-          package-json-path: '${{ github.workspace }}/package.json'
+          package-json-path: "${{ github.workspace }}/package.json"
 
       - name: Use the package manager cache if available
         uses: actions/setup-node@v3
         with:
           node-version: 20
-          cache: 'npm'
+          cache: "npm"
 
       - name: Install dependencies
         run: npm ci
