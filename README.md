@@ -46,10 +46,11 @@
 
 - Create nx plugin to read `xcworkspace` and `xcodeproj` files and generate the targets and dependencies automatically
 - Find a way to integrate `nx` into `xcodebuild` or whatever you use for building currently
-- Configure a "development" scheme that re-enables the Find Implicit Dependencies option and uses nx cache when present rather than re-building
+- Configure re-enables the Find Implicit Dependencies option in schemes and uses nx cache when present rather than re-building
    - I wasn't able to pin down exactly how to prevent xcode from rebuilding
    - Just caching the intermediates and products did not seem to be enough
    - The `Legacy` option in `Xcode Settings -> Location -> Derived Data -> Advanced` seemed like it may work, however I ran into issues getting xcode to resolve the compiled products. Configuring the "Framework Search Paths" seems to be the answer, but I wasn't able to get it to work.
+   - Also, it seems like we may need to restore the `mtime` for DerivedData files. See this [post from CircleCi](https://michalzaborowski.medium.com/circleci-60-faster-builds-use-xcode-deriveddata-for-caching-96fb9a58930) for more details.
 - An Nx cache hit for a lib or app should be equivalent to one from XCode
    - Right now, we're only caching the build outputs
 - Nx can distribute test tasks in addition to build tasks
