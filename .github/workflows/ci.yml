@@ -59,10 +59,12 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Ensure nx present
-        run: ./nx --version
+      - uses: pnpm/action-setup@v4
+
+      - name: Install dependencies
+        run: pnpm install
 
       - name: Start Nx Agent ${{ matrix.agent_number }}
-        run: npx nx-cloud start-agent
+        run: pnpx nx-cloud start-agent
         env:
           NX_AGENT_NAME: ${{ matrix.agent_number }}

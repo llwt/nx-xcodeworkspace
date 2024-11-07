@@ -50,3 +50,7 @@
    - I wasn't able to pin down exactly how to prevent xcode from rebuilding
    - Just caching the intermediates and products did not seem to be enough
    - The `Legacy` option in `Xcode Settings -> Location -> Derived Data -> Advanced` seemed like it may work, however I ran into issues getting xcode to resolve the compiled products. Configuring the "Framework Search Paths" seems to be the answer, but I wasn't able to get it to work.
+- An Nx cache hit for a lib or app should be equivalent to one from XCode
+   - Right now, we're only caching the build outputs
+- Nx can distribute test tasks in addition to build tasks
+- the `package.json` should not be necessary -- there is a bug in nx-cloud that requires in in CI for now
